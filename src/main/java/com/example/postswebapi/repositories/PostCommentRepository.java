@@ -1,7 +1,7 @@
 package com.example.postswebapi.repositories;
 
-import com.example.postswebapi.entities.Post;
+import com.example.postswebapi.entities.PostComment;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PostCommentRepository extends CrudRepository<Post, Long> {
+public interface PostCommentRepository extends CrudRepository<PostComment, Long> {
 }

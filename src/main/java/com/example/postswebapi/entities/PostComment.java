@@ -48,10 +48,6 @@ public class PostComment {
         this.postId = postId;
     }
 
-    public void setDateOfCreation(LocalDateTime dateOfCreation) {
-        this.dateOfCreation = dateOfCreation;
-    }
-
     public void setText(String text) {
         this.text = text;
     }
