@@ -2,8 +2,6 @@ package com.example.postswebapi.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -19,11 +17,9 @@ public class Post {
     private Long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @CreationTimestamp
     private LocalDateTime dateOfCreation;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @UpdateTimestamp
     private LocalDateTime dateOfUpdate;
 
     private String title;
@@ -31,8 +27,8 @@ public class Post {
     private Integer views;
     private Integer likes;
 
-    @OneToMany(orphanRemoval=true)
-    @JoinColumn(name="POST_ID")
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name = "POST_ID")
     private Set<PostComment> comments;
 
     public Long getId() {
@@ -63,12 +59,24 @@ public class Post {
         return likes;
     }
 
+    public void setDateOfCreation(LocalDateTime dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
+    }
+
+    public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
+        this.dateOfUpdate = dateOfUpdate;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void setViews(Integer views) {
+        this.views = views;
     }
 
     public void setLikes(Integer likes) {
