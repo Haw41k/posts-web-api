@@ -103,11 +103,11 @@ public class PostControllerTests {
                 put("/api/posts/{id}/dislike", post.getId()))
                 .andExpect(status().isOk());
 
-        Post likedPost = postRepository.findById(post.getId()).get();
+        Post dislikedPost = postRepository.findById(post.getId()).get();
 
         Assertions.assertEquals(
                 post.getLikes() - 1,
-                likedPost.getLikes()
+                dislikedPost.getLikes()
         );
     }
 
